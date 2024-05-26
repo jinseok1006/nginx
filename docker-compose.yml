@@ -6,9 +6,10 @@ services:
     volumes:
       - ./conf.d:/etc/nginx/conf.d
       - ./log:/var/log/nginx
+      - /etc/letsencrypt:/cert
     ports:
-      - 9000:80
-    # restart: unless-stopped
+      - 80:80
+    restart: unless-stopped
     environment:
       - TZ=Asia/Seoul
     networks:
