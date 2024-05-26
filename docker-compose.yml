@@ -1,0 +1,20 @@
+
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./log:/var/log/nginx
+    ports:
+      - 9000:80
+    # restart: unless-stopped
+    environment:
+      - TZ=Asia/Seoul
+    networks:
+      - nginx-proxy
+
+
+networks:
+  nginx-proxy:
+    external: true
